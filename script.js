@@ -29,8 +29,8 @@ const setColors = (colors, scene, palette, brand) => {
 document.addEventListener("DOMContentLoaded", async () => {
   const palette = document.querySelector(".color-palette");
   const brand = document.querySelector("#brand-selection");
-  const scene = document.querySelector(".view");
-  const sceneImage = document.querySelector(".view-img");
+  const scene = document.querySelector(".scene");
+  const sceneImage = document.querySelector(".scene-img");
   const colors = await getColors();
   if (colors.length) {
     setColors(colors, scene, palette, brand.value);

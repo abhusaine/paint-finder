@@ -13,7 +13,6 @@ body {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr;
-  height: 65vh;
   padding-right: 20px;
 }
 
@@ -22,12 +21,13 @@ body {
   margin: 20px auto;
 }
 
-.view {
+.scene {
   position: relative;
   display: flex;
+  height: 65vh;
   /* background: url(./media/living-room.png) no-repeat center/cover; */
 }
-.view-img {
+.scene-img {
   object-fit: cover;
   object-position: center;
   width: 100%;
@@ -45,7 +45,7 @@ body {
   transform: translateX(-50%);
 }
 
-.btn-change-view {
+.btn-change-scene {
   font-family: inherit;
   padding: 5px 10px;
   display: inline-block;
@@ -53,6 +53,10 @@ body {
   border: 1px solid #aaa;
   background-color: #fff;
   cursor: pointer;
+}
+
+.palette-wrap {
+  height: 65vh;
 }
 
 .brand-wrap {
