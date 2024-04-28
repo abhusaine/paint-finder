@@ -5,27 +5,38 @@ const getColors = () => {
   return colors;
 };
 
+const setColors = (colors, scene, palette, brand) => {
+  palette.innerHTML = "";
+  const selectedColors = colors.filter((color) => color.brand === brand)[0]
+    .colors;
+  selectedColors.map((color) => {
+    const swatchElement = document.createElement("span");
+    swatchElement.classList.add("color-swatch");
+    swatchElement.setAttribute("data-title", color.name);
+    swatchElement.setAttribute("data-color", color.code);
+    swatchElement.style.background = color.code;
+    palette.appendChild(swatchElement);
+
+    swatchElement.addEventListener("mouseover", () => {
+      scene.style.backgroundColor = swatchElement.getAttribute("data-color");
+    });
+    swatchElement.addEventListener("mouseout", () => {
+      scene.style.backgroundColor = "#ffffff";
+    });
+  });
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   const palette = document.querySelector(".color-palette");
+  const brand = document.querySelector("#brand-selection");
   const scene = document.querySelector(".view");
   const sceneImage = document.querySelector(".view-img");
   const colors = await getColors();
   if (colors.length) {
-    colors.map((color, index) => {
-      const swatchElement = document.createElement("span");
-      swatchElement.classList.add("color-swatch");
-      swatchElement.setAttribute("data-title", color.name);
-      swatchElement.setAttribute("data-color", color.color);
-      swatchElement.style.background = color.color;
-      palette.appendChild(swatchElement);
-
-      swatchElement.addEventListener("mouseover", () => {
-        scene.style.backgroundColor = swatchElement.getAttribute("data-color");
-      });
-      swatchElement.addEventListener("mouseout", () => {
-        scene.style.backgroundColor = "#ffffff";
-      });
-    });
+    setColors(colors, scene, palette, brand.value);
+    brand.addEventListener("change", (e) =>
+      setColors(colors, scene, palette, e.target.value)
+    );
   }
 
   const setLivingRoom = document.querySelector("#btn-living-room");

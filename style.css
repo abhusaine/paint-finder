@@ -9,9 +9,12 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.container {
+.app-container {
   display: grid;
+  gap: 20px;
   grid-template-columns: 1fr 1fr;
+  height: 65vh;
+  padding-right: 20px;
 }
 
 .app-title {
@@ -20,7 +23,6 @@ body {
 }
 
 .view {
-  height: 65vh;
   position: relative;
   display: flex;
   /* background: url(./media/living-room.png) no-repeat center/cover; */
@@ -53,12 +55,27 @@ body {
   cursor: pointer;
 }
 
+.brand-wrap {
+  padding: 20px 0;
+}
+.brand-wrap label[for="brand-selection"] {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+#brand-selection {
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .color-palette {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   overflow-x: hidden;
   overflow-y: auto;
-  height: 65vh;
   gap: 5px;
 }
 .color-swatch {

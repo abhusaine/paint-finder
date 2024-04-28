@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1 class="app-title">Paint Finder</h1>
-    <div class="container">
+    <div class="app-container">
       <div class="view">
         <img class="view-img" src="./media/living-room.png" alt="" />
         <div class="btn-group">
@@ -19,7 +19,19 @@
           <button class="btn-change-view" id="btn-bathroom">Bathroom</button>
         </div>
       </div>
-      <div class="color-palette"></div>
+      <div class="palette-wrap">
+        <div class="brand-wrap">
+          <label for="brand-selection">Select A Brand</label>
+          <select name="brand-selection" id="brand-selection">
+            <option value="any">Any</option>
+            <option value="dulux">Dulux</option>
+            <option value="dulux-trade">Dulux Trade</option>
+            <option value="johnstone">Johnstone's</option>
+            <option value="leyland">Leyland</option>
+          </select>
+        </div>
+        <div class="color-palette"></div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
